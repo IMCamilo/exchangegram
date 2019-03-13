@@ -1,2 +1,16 @@
 server:
   port: 8766
+
+endpoints:
+    users: https://jsonplaceholder.typicode.com/users
+    albums: https://jsonplaceholder.typicode.com/albums
+    photos: https://jsonplaceholder.typicode.com/photos
+
+spring:
+  data:
+    mongodb:
+      host: ds012889.mlab.com
+      port: 12889
+      database: storage-wlx-challenge
+      username: xlw-resu
+      password: qwerty-u1
