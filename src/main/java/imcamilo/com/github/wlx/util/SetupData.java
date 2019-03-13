@@ -15,7 +15,7 @@ import java.util.List;
  * Created by Camilo Jorquera on 3/13/19
  */
 @Component
-public class FetchData {
+public class SetupData {
 
     @Autowired
     private FetchDataService fetchDataService;
