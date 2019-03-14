@@ -2,11 +2,11 @@ package imcamilo.com.github.wlx.util;
 
 import imcamilo.com.github.wlx.dto.AlbumDTO;
 import imcamilo.com.github.wlx.dto.PhotoDTO;
-import imcamilo.com.github.wlx.dto.SharedContentDTO;
+import imcamilo.com.github.wlx.dto.ExchangegramDTO;
 import imcamilo.com.github.wlx.dto.UserDTO;
 import imcamilo.com.github.wlx.model.Album;
 import imcamilo.com.github.wlx.model.Photo;
-import imcamilo.com.github.wlx.model.SharedContent;
+import imcamilo.com.github.wlx.model.Exchangegram;
 import imcamilo.com.github.wlx.model.User;
 
 /**
@@ -61,18 +61,18 @@ public class DTOMapper {
         return photo;
     }
 
-    private static void toEntity(SharedContentDTO sharedContentDTO, SharedContent sharedContent){
-        sharedContent.setId(sharedContentDTO.getId());
-        sharedContent.setAlbumId(sharedContentDTO.getAlbumId());
-        sharedContent.setOwnerId(sharedContentDTO.getOwnerId());
-        sharedContent.setFriendId(sharedContentDTO.getFriendId());
-        sharedContent.setPermission(sharedContentDTO.getPermission());
+    private static void toEntity(ExchangegramDTO exchangegramDTO, Exchangegram exchangegram){
+        exchangegram.setId(exchangegramDTO.getId());
+        exchangegram.setAlbumId(exchangegramDTO.getAlbumId());
+        exchangegram.setOwnerId(exchangegramDTO.getOwnerId());
+        exchangegram.setFriendId(exchangegramDTO.getFriendId());
+        exchangegram.setPermission(exchangegramDTO.getPermission());
     }
 
-    public static SharedContent toEntity(SharedContentDTO sharedContentDTO){
-        SharedContent sharedContent = new SharedContent();
-        toEntity(sharedContentDTO, sharedContent);
-        return sharedContent;
+    public static Exchangegram toEntity(ExchangegramDTO exchangegramDTO){
+        Exchangegram exchangegram = new Exchangegram();
+        toEntity(exchangegramDTO, exchangegram);
+        return exchangegram;
     }
 
 }
