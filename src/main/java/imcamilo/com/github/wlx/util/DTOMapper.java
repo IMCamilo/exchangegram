@@ -62,7 +62,6 @@ public class DTOMapper {
     }
 
     private static void toEntity(ExchangegramDTO exchangegramDTO, Exchangegram exchangegram){
-        exchangegram.setId(exchangegramDTO.getId());
         exchangegram.setAlbumId(exchangegramDTO.getAlbumId());
         exchangegram.setOwnerId(exchangegramDTO.getOwnerId());
         exchangegram.setFriendId(exchangegramDTO.getFriendId());

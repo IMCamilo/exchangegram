@@ -10,10 +10,9 @@ import lombok.Setter;
 @Setter
 public class ExchangegramDTO {
 
-    private String id;
-    private String albumId;
-    private String ownerId;
-    private String friendId;
+    private Integer albumId;
+    private Integer ownerId;
+    private Integer friendId;
     private PermissionEnum permission;
 
 }
