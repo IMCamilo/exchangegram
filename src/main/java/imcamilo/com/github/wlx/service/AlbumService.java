@@ -11,8 +11,6 @@ public interface AlbumService {
 
     List<AlbumDTO> findAllByUserId(Integer id);
 
-    void saveAlbum(AlbumDTO albumDTO);
-
     void saveAllAlbums(List<AlbumDTO> albumDTOList);
 
 }

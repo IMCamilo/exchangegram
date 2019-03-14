@@ -9,8 +9,6 @@ import java.util.List;
  */
 public interface PhotoService {
 
-    void savePhoto(PhotoDTO photoDTO);
-
     void saveAllPhotos(List<PhotoDTO> photoDTOList);
 
 }

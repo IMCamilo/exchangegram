@@ -23,11 +23,6 @@ public class PhotoServiceImp implements PhotoService {
         this.photoRepository = photoRepository;
     }
 
-    public void savePhoto(PhotoDTO photoDTO) {
-        photoRepository.deleteAll();
-        photoRepository.save(DTOMapper.toEntity(photoDTO));
-    }
-
     public void saveAllPhotos(List<PhotoDTO> photoDTOList) {
         photoRepository.deleteAll();
         List<Photo> photoList = photoDTOList.stream().map(DTOMapper::toEntity).collect(Collectors.toList());

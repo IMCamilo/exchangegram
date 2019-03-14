@@ -4,6 +4,7 @@ import imcamilo.com.github.wlx.dto.AlbumDTO;
 import imcamilo.com.github.wlx.dto.PhotoDTO;
 import imcamilo.com.github.wlx.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -21,29 +22,35 @@ public class FetchDataServiceImp implements FetchDataService {
 
     private final RestTemplate restTemplate;
 
+    @Value("${endpoints.users}")
+    private String usersEndpoint;
+
+    @Value("${endpoints.albums}")
+    private String albumsEndpoint;
+
+    @Value("${endpoints.photos}")
+    private String photosEndpoint;
+
     @Autowired
     public FetchDataServiceImp(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
     }
 
     public List<UserDTO> getAllUsers() {
-        ResponseEntity<List<UserDTO>> response = restTemplate.exchange(
-                "https://jsonplaceholder.typicode.com/users",
-                HttpMethod.GET, null, new ParameterizedTypeReference<List<UserDTO>>(){});
+        ResponseEntity<List<UserDTO>> response = restTemplate.exchange(usersEndpoint, HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<UserDTO>>(){});
         return response.getBody();
     }
 
     public List<AlbumDTO> getAllAlbums() {
-        ResponseEntity<List<AlbumDTO>> response = restTemplate.exchange(
-                "https://jsonplaceholder.typicode.com/albums",
-                HttpMethod.GET, null, new ParameterizedTypeReference<List<AlbumDTO>>(){});
+        ResponseEntity<List<AlbumDTO>> response = restTemplate.exchange(albumsEndpoint, HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<AlbumDTO>>(){});
         return response.getBody();
     }
 
     public List<PhotoDTO> getAllPhotos() {
-        ResponseEntity<List<PhotoDTO>> response = restTemplate.exchange(
-                "https://jsonplaceholder.typicode.com/photos",
-                HttpMethod.GET, null, new ParameterizedTypeReference<List<PhotoDTO>>(){});
+        ResponseEntity<List<PhotoDTO>> response = restTemplate.exchange(photosEndpoint, HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<PhotoDTO>>(){});
         return response.getBody();
     }
 

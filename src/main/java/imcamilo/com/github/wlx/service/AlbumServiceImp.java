@@ -28,11 +28,6 @@ public class AlbumServiceImp implements AlbumService {
         return albumList.stream().map(Album::toDTO).collect(Collectors.toList());
     }
 
-    public void saveAlbum(AlbumDTO albumDTO) {
-        albumRepository.deleteAll();
-        albumRepository.save(DTOMapper.toEntity(albumDTO));
-    }
-
     public void saveAllAlbums(List<AlbumDTO> albumDTOList) {
         albumRepository.deleteAll();
         List<Album> albumList = albumDTOList.stream().map(DTOMapper::toEntity).collect(Collectors.toList());

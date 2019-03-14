@@ -23,11 +23,6 @@ public class UserServiceImp implements UserService {
         this.userRepository = userRepository;
     }
 
-    public void saveUser(UserDTO userDTO) {
-        userRepository.deleteAll();
-        userRepository.save(DTOMapper.toEntity(userDTO));
-    }
-
     public void saveAllUsers(List<UserDTO> userDTOList) {
         userRepository.deleteAll();
         List<User> userList = userDTOList.stream().map(DTOMapper::toEntity).collect(Collectors.toList());
