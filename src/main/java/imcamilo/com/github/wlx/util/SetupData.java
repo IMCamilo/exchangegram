@@ -3,8 +3,10 @@ package imcamilo.com.github.wlx.util;
 import imcamilo.com.github.wlx.dto.AlbumDTO;
 import imcamilo.com.github.wlx.dto.PhotoDTO;
 import imcamilo.com.github.wlx.dto.UserDTO;
+import imcamilo.com.github.wlx.service.AlbumService;
 import imcamilo.com.github.wlx.service.FetchDataService;
-import imcamilo.com.github.wlx.service.StorageService;
+import imcamilo.com.github.wlx.service.PhotoService;
+import imcamilo.com.github.wlx.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,20 +19,28 @@ import java.util.List;
 @Component
 public class SetupData {
 
-    @Autowired
     private FetchDataService fetchDataService;
+    private PhotoService photoService;
+    private AlbumService albumService;
+    private UserService userService;
 
     @Autowired
-    private StorageService storageService;
+    public SetupData(FetchDataService fetchDataService, PhotoService photoService,
+                     AlbumService albumService, UserService userService) {
+        this.fetchDataService = fetchDataService;
+        this.photoService = photoService;
+        this.albumService = albumService;
+        this.userService = userService;
+    }
 
     @PostConstruct
     public void init() {
         List<UserDTO> users = fetchDataService.getAllUsers();
-        storageService.saveAllUsers(users);
+        userService.saveAllUsers(users);
         List<AlbumDTO> albums = fetchDataService.getAllAlbums();
-        storageService.saveAllAlbums(albums);
+        albumService.saveAllAlbums(albums);
         List<PhotoDTO> photos = fetchDataService.getAllPhotos();
-        storageService.saveAllPhotos(photos);
+        photoService.saveAllPhotos(photos);
     }
 
 }

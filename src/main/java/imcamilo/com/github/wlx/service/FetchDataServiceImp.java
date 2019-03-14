@@ -29,27 +29,21 @@ public class FetchDataServiceImp implements FetchDataService {
     public List<UserDTO> getAllUsers() {
         ResponseEntity<List<UserDTO>> response = restTemplate.exchange(
                 "https://jsonplaceholder.typicode.com/users",
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<UserDTO>>(){});
+                HttpMethod.GET, null, new ParameterizedTypeReference<List<UserDTO>>(){});
         return response.getBody();
     }
 
     public List<AlbumDTO> getAllAlbums() {
         ResponseEntity<List<AlbumDTO>> response = restTemplate.exchange(
                 "https://jsonplaceholder.typicode.com/albums",
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<AlbumDTO>>(){});
+                HttpMethod.GET, null, new ParameterizedTypeReference<List<AlbumDTO>>(){});
         return response.getBody();
     }
 
     public List<PhotoDTO> getAllPhotos() {
         ResponseEntity<List<PhotoDTO>> response = restTemplate.exchange(
                 "https://jsonplaceholder.typicode.com/photos",
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<PhotoDTO>>(){});
+                HttpMethod.GET, null, new ParameterizedTypeReference<List<PhotoDTO>>(){});
         return response.getBody();
     }
 

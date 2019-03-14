@@ -1,5 +1,6 @@
 package imcamilo.com.github.wlx.model;
 
+import imcamilo.com.github.wlx.dto.PhotoDTO;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -20,5 +21,15 @@ public class Photo {
     private String title;
     private String url;
     private String thumbnailUrl;
+
+    public PhotoDTO toDTO() {
+        PhotoDTO photoDTO = new PhotoDTO();
+        photoDTO.setAlbumId(this.getAlbumId());
+        photoDTO.setId(this.getIdSource());
+        photoDTO.setTitle(this.getTitle());
+        photoDTO.setUrl(this.getUrl());
+        photoDTO.setThumbnailUrl(this.getThumbnailUrl());
+        return photoDTO;
+    }
 
 }
