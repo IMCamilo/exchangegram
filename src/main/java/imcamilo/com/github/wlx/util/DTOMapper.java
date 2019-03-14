@@ -18,7 +18,7 @@ public class DTOMapper {
 
     }
 
-    private static void toEntity(UserDTO userDTO, User user){
+    private static void toEntity(UserDTO userDTO, User user) {
         user.setIdSource(userDTO.getId());
         user.setName(userDTO.getName());
         user.setUsername(userDTO.getUsername());
@@ -29,25 +29,25 @@ public class DTOMapper {
         user.setCompany(userDTO.getCompany());
     }
 
-    public static User toEntity(UserDTO userDTO){
+    public static User toEntity(UserDTO userDTO) {
         User user = new User();
         toEntity(userDTO, user);
         return user;
     }
 
-    private static void toEntity(AlbumDTO albumDTO, Album album){
+    private static void toEntity(AlbumDTO albumDTO, Album album) {
         album.setIdSource(albumDTO.getId());
         album.setUserId(albumDTO.getUserId());
         album.setTitle(albumDTO.getTitle());
     }
 
-    public static Album toEntity(AlbumDTO albumDTO){
+    public static Album toEntity(AlbumDTO albumDTO) {
         Album album = new Album();
         toEntity(albumDTO, album);
         return album;
     }
 
-    private static void toEntity(PhotoDTO photoDTO, Photo photo){
+    private static void toEntity(PhotoDTO photoDTO, Photo photo) {
         photo.setIdSource(photoDTO.getId());
         photo.setAlbumId(photoDTO.getAlbumId());
         photo.setTitle(photoDTO.getTitle());
@@ -55,20 +55,21 @@ public class DTOMapper {
         photo.setThumbnailUrl(photoDTO.getThumbnailUrl());
     }
 
-    public static Photo toEntity(PhotoDTO photoDTO){
+    public static Photo toEntity(PhotoDTO photoDTO) {
         Photo photo = new Photo();
         toEntity(photoDTO, photo);
         return photo;
     }
 
-    private static void toEntity(ExchangegramDTO exchangegramDTO, Exchangegram exchangegram){
+    private static void toEntity(ExchangegramDTO exchangegramDTO, Exchangegram exchangegram) {
+        exchangegram.setId(exchangegramDTO.getId());
         exchangegram.setAlbumId(exchangegramDTO.getAlbumId());
         exchangegram.setOwnerId(exchangegramDTO.getOwnerId());
         exchangegram.setFriendId(exchangegramDTO.getFriendId());
         exchangegram.setPermission(exchangegramDTO.getPermission());
     }
 
-    public static Exchangegram toEntity(ExchangegramDTO exchangegramDTO){
+    public static Exchangegram toEntity(ExchangegramDTO exchangegramDTO) {
         Exchangegram exchangegram = new Exchangegram();
         toEntity(exchangegramDTO, exchangegram);
         return exchangegram;

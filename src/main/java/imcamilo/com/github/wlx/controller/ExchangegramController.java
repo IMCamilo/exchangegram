@@ -20,4 +20,9 @@ public class ExchangegramController {
         exchangegramService.save(exchangegramDTO);
     }
 
+    @PutMapping
+    public void updateRecordAlbum(@RequestBody ExchangegramDTO exchangegramDTO) {
+        exchangegramService.save(exchangegramDTO);
+    }
+
 }

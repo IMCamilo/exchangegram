@@ -24,6 +24,7 @@ public class Exchangegram {
 
     public ExchangegramDTO toDTO() {
         ExchangegramDTO exchangegramDTO = new ExchangegramDTO();
+        exchangegramDTO.setId(this.getId());
         exchangegramDTO.setAlbumId(this.getAlbumId());
         exchangegramDTO.setOwnerId(this.getOwnerId());
         exchangegramDTO.setFriendId(this.getFriendId());
