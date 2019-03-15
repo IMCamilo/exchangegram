@@ -12,6 +12,8 @@ public interface ExchangegramService {
 
     void save(ExchangegramDTO exchangegramDTO);
 
+    void update(ExchangegramDTO exchangegramDTO);
+
     List<ExchangegramDTO> findAllByPermissionAndAlbumId(PermissionEnum permissionEnum, Integer albumId);
 
 }

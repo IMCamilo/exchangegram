@@ -22,7 +22,7 @@ public class ExchangegramController {
 
     @PutMapping
     public void updateRecordAlbum(@RequestBody ExchangegramDTO exchangegramDTO) {
-        exchangegramService.save(exchangegramDTO);
+        exchangegramService.update(exchangegramDTO);
     }
 
 }
