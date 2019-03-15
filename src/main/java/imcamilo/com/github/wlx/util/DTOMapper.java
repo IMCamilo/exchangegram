@@ -70,7 +70,6 @@ public class DTOMapper {
     }
 
     private static void toEntity(ExchangegramSimpleDTO simpleDTO, ExchangegramSimple exchangegram) {
-        exchangegram.setId(simpleDTO.getId());
         exchangegram.setName(simpleDTO.getName());
         exchangegram.setEmail(simpleDTO.getEmail());
         exchangegram.setPermission(simpleDTO.getPermission());
