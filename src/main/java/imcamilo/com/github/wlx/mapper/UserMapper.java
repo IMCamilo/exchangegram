@@ -1,7 +1,5 @@
 package imcamilo.com.github.wlx.mapper;
 
-import imcamilo.com.github.wlx.dto.AddressDTO;
-import imcamilo.com.github.wlx.dto.CompanyDTO;
 import imcamilo.com.github.wlx.model.User;
 import org.apache.ibatis.annotations.*;
 

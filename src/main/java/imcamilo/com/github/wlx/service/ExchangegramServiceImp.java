@@ -3,6 +3,7 @@ package imcamilo.com.github.wlx.service;
 import imcamilo.com.github.wlx.dto.ExchangegramDTO;
 import imcamilo.com.github.wlx.dto.PermissionEnum;
 import imcamilo.com.github.wlx.mapper.ExchangegramMapper;
+import imcamilo.com.github.wlx.util.DTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,8 @@ public class ExchangegramServiceImp implements ExchangegramService {
     }
 
     public void save(ExchangegramDTO exchangegramDTO){
-       // exchangegramMapper.save(DTOMapper.toEntity(exchangegramDTO));
+       exchangegramMapper.save(exchangegramDTO.getAlbumId(), exchangegramDTO.getOwnerId(),
+               exchangegramDTO.getFriendId(), exchangegramDTO.getPermission().name());
     }
 
     public List<ExchangegramDTO> findAllByPermissionAndAlbumId(PermissionEnum permissionEnum, Integer albumId) {
