@@ -1,6 +1,7 @@
 package imcamilo.com.github.wlx.mapper;
 
 import imcamilo.com.github.wlx.model.Exchangegram;
+import imcamilo.com.github.wlx.model.ExchangegramSimple;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -23,6 +24,9 @@ public interface ExchangegramMapper {
     @Select("select * from exchangegram")
     List<Exchangegram> findAll();
 
-    //get all users for album with the same permission
+    @Select("select u.name, u.email, x.albumId, x.permission" +
+            "from exchangegram as x join users as u on x.friendId = u.id" +
+            "where x.albumId = #{albumId} and x.permission = #{permission}")
+    List<ExchangegramSimple> findAllByAlbumIdAndPermission(@Param("albumId") Integer albumId, @Param("permission") String permission);
 
 }

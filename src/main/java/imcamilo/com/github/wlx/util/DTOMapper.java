@@ -1,13 +1,7 @@
 package imcamilo.com.github.wlx.util;
 
-import imcamilo.com.github.wlx.dto.AlbumDTO;
-import imcamilo.com.github.wlx.dto.PhotoDTO;
-import imcamilo.com.github.wlx.dto.ExchangegramDTO;
-import imcamilo.com.github.wlx.dto.UserDTO;
-import imcamilo.com.github.wlx.model.Album;
-import imcamilo.com.github.wlx.model.Photo;
-import imcamilo.com.github.wlx.model.Exchangegram;
-import imcamilo.com.github.wlx.model.User;
+import imcamilo.com.github.wlx.dto.*;
+import imcamilo.com.github.wlx.model.*;
 
 /**
  * Created by Camilo Jorquera on 3/13/19
@@ -72,6 +66,19 @@ public class DTOMapper {
     public static Exchangegram toEntity(ExchangegramDTO exchangegramDTO) {
         Exchangegram exchangegram = new Exchangegram();
         toEntity(exchangegramDTO, exchangegram);
+        return exchangegram;
+    }
+
+    private static void toEntity(ExchangegramSimpleDTO simpleDTO, ExchangegramSimple exchangegram) {
+        exchangegram.setId(simpleDTO.getId());
+        exchangegram.setName(simpleDTO.getName());
+        exchangegram.setEmail(simpleDTO.getEmail());
+        exchangegram.setPermission(simpleDTO.getPermission());
+    }
+
+    public static ExchangegramSimple toEntity(ExchangegramSimpleDTO simpleDTO) {
+        ExchangegramSimple exchangegram = new ExchangegramSimple();
+        toEntity(simpleDTO, exchangegram);
         return exchangegram;
     }
 

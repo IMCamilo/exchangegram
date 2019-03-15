@@ -1,6 +1,7 @@
 package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.ExchangegramDTO;
+import imcamilo.com.github.wlx.dto.ExchangegramSimpleDTO;
 import imcamilo.com.github.wlx.dto.PermissionEnum;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public interface ExchangegramService {
 
     void update(ExchangegramDTO exchangegramDTO);
 
-    List<ExchangegramDTO> findAllByPermissionAndAlbumId(PermissionEnum permissionEnum, Integer albumId);
+    List<ExchangegramSimpleDTO> findAllByPermissionAndAlbumId(Integer albumId, PermissionEnum permissionEnum);
+
+    List<ExchangegramDTO> findAll();
 
 }

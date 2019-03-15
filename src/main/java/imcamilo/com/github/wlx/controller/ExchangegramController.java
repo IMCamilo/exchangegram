@@ -5,6 +5,8 @@ import imcamilo.com.github.wlx.service.ExchangegramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * Created by Camilo Jorquera on 3/14/19
  */
@@ -23,6 +25,11 @@ public class ExchangegramController {
     @PutMapping
     public void updateRecordAlbum(@RequestBody ExchangegramDTO exchangegramDTO) {
         exchangegramService.update(exchangegramDTO);
+    }
+
+    @GetMapping
+    public List<ExchangegramDTO> findAll() {
+        return exchangegramService.findAll();
     }
 
 }
