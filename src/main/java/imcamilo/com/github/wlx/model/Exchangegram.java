@@ -4,19 +4,17 @@ import imcamilo.com.github.wlx.dto.PermissionEnum;
 import imcamilo.com.github.wlx.dto.ExchangegramDTO;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.io.Serializable;
 
 /**
  * Created by Camilo Jorquera on 3/14/19
  */
 @Getter
 @Setter
-@Document
-public class Exchangegram {
+public class Exchangegram  implements Serializable {
 
-    @Id
-    private String id;
+    private Integer id;
     private Integer albumId;
     private Integer ownerId;
     private Integer friendId;

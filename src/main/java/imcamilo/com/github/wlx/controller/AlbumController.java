@@ -20,7 +20,7 @@ public class AlbumController {
 
     @GetMapping("/{id}/permissions/{permission}")
     public void getDetailsForAlbum(@PathVariable Integer id, @PathVariable PermissionEnum permission) {
-        exchangegramService.findAllByPermissionAndAlbumId(permission, id);
+        //exchangegramService.findAllByPermissionAndAlbumId(permission, id);
     }
 
 }

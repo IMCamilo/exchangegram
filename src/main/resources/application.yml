@@ -7,10 +7,6 @@ endpoints:
     photos: https://jsonplaceholder.typicode.com/photos
 
 spring:
-  data:
-    mongodb:
-      host: ds012889.mlab.com
-      port: 12889
-      database: storage-wlx-challenge
-      username: xlw-resu
-      password: qwerty-u1
+  datasource:
+    driver-class-name: org.h2.Driver
+    schema: classpath:import.sql

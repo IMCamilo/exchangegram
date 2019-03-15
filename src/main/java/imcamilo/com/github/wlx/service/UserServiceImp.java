@@ -1,8 +1,8 @@
 package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.UserDTO;
+import imcamilo.com.github.wlx.mapper.UserMapper;
 import imcamilo.com.github.wlx.model.User;
-import imcamilo.com.github.wlx.repository.UserRepository;
 import imcamilo.com.github.wlx.util.DTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,17 +16,18 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImp implements UserService {
 
-    private UserRepository userRepository;
+    private UserMapper userMapper;
 
     @Autowired
-    public UserServiceImp(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserServiceImp(UserMapper userMapper) {
+        this.userMapper = userMapper;
     }
 
     public void saveAllUsers(List<UserDTO> userDTOList) {
-        userRepository.deleteAll();
         List<User> userList = userDTOList.stream().map(DTOMapper::toEntity).collect(Collectors.toList());
-        userRepository.saveAll(userList);
+        userList.forEach(user -> userMapper.save(
+                user.getId(), user.getName(), user.getUsername(), user.getEmail(),
+                "", user.getPhone(), user.getWebsite(), ""));
     }
 
 }

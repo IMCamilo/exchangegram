@@ -2,9 +2,7 @@ package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.ExchangegramDTO;
 import imcamilo.com.github.wlx.dto.PermissionEnum;
-import imcamilo.com.github.wlx.model.Exchangegram;
-import imcamilo.com.github.wlx.repository.ExchangegramRepository;
-import imcamilo.com.github.wlx.util.DTOMapper;
+import imcamilo.com.github.wlx.mapper.ExchangegramMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,20 +15,21 @@ import java.util.stream.Collectors;
 @Service
 public class ExchangegramServiceImp implements ExchangegramService {
 
-    private ExchangegramRepository exchangegramRepository;
+    private ExchangegramMapper exchangegramMapper;
 
     @Autowired
-    public ExchangegramServiceImp(ExchangegramRepository exchangegramRepository) {
-        this.exchangegramRepository = exchangegramRepository;
+    public ExchangegramServiceImp(ExchangegramMapper exchangegramMapper) {
+        this.exchangegramMapper = exchangegramMapper;
     }
 
     public void save(ExchangegramDTO exchangegramDTO){
-        exchangegramRepository.save(DTOMapper.toEntity(exchangegramDTO));
+       // exchangegramMapper.save(DTOMapper.toEntity(exchangegramDTO));
     }
 
     public List<ExchangegramDTO> findAllByPermissionAndAlbumId(PermissionEnum permissionEnum, Integer albumId) {
-        List<Exchangegram> listExchangesByPermissionAndAlbum = exchangegramRepository.findAllByPermissionAndAlbumId(permissionEnum, albumId);
-        return listExchangesByPermissionAndAlbum.stream().map(Exchangegram::toDTO).collect(Collectors.toList());
+        //List<Exchangegram> listExchangesByPermissionAndAlbum = exchangegramMapper.findAllByPermissionAndAlbumId(permissionEnum, albumId);
+        //return listExchangesByPermissionAndAlbum.stream().map(Exchangegram::toDTO).collect(Collectors.toList());
+        return null;
     }
 
 }

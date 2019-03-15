@@ -19,14 +19,14 @@ public class DTOMapper {
     }
 
     private static void toEntity(UserDTO userDTO, User user) {
-        user.setIdSource(userDTO.getId());
+        user.setId(userDTO.getId());
         user.setName(userDTO.getName());
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
-        user.setAddress(userDTO.getAddress());
+        //user.setAddress(userDTO.getAddress());
         user.setPhone(userDTO.getPhone());
         user.setWebsite(userDTO.getWebsite());
-        user.setCompany(userDTO.getCompany());
+        //user.setCompany(userDTO.getCompany());
     }
 
     public static User toEntity(UserDTO userDTO) {
@@ -36,7 +36,7 @@ public class DTOMapper {
     }
 
     private static void toEntity(AlbumDTO albumDTO, Album album) {
-        album.setIdSource(albumDTO.getId());
+        album.setId(albumDTO.getId());
         album.setUserId(albumDTO.getUserId());
         album.setTitle(albumDTO.getTitle());
     }
@@ -48,7 +48,7 @@ public class DTOMapper {
     }
 
     private static void toEntity(PhotoDTO photoDTO, Photo photo) {
-        photo.setIdSource(photoDTO.getId());
+        photo.setId(photoDTO.getId());
         photo.setAlbumId(photoDTO.getAlbumId());
         photo.setTitle(photoDTO.getTitle());
         photo.setUrl(photoDTO.getUrl());
