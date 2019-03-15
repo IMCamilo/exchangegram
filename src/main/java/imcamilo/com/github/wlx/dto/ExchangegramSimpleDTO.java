@@ -10,7 +10,6 @@ import lombok.Setter;
 @Setter
 public class ExchangegramSimpleDTO {
 
-    Integer id;
     String name;
     String email;
     PermissionEnum permission;

@@ -12,14 +12,12 @@ import lombok.Setter;
 @Setter
 public class ExchangegramSimple {
 
-    Integer id;
     String name;
     String email;
     PermissionEnum permission;
 
     public ExchangegramSimpleDTO toDTO() {
         ExchangegramSimpleDTO  exchangegramSimpleDTO = new ExchangegramSimpleDTO ();
-        exchangegramSimpleDTO.setId(this.getId());
         exchangegramSimpleDTO.setName(this.getName());
         exchangegramSimpleDTO.setEmail(this.getEmail());
         exchangegramSimpleDTO.setPermission(this.getPermission());

@@ -24,8 +24,8 @@ public interface ExchangegramMapper {
     @Select("select * from exchangegram")
     List<Exchangegram> findAll();
 
-    @Select("select u.name, u.email, x.albumId, x.permission" +
-            "from exchangegram as x join users as u on x.friendId = u.id" +
+    @Select("select u.name, u.email, x.albumId, x.permission " +
+            "from exchangegram x join users u on x.friendId = u.id " +
             "where x.albumId = #{albumId} and x.permission = #{permission}")
     List<ExchangegramSimple> findAllByAlbumIdAndPermission(@Param("albumId") Integer albumId, @Param("permission") String permission);
 
