@@ -3,7 +3,16 @@ language: java
 jdk:
   - oraclejdk8
 
+dist: trusty
+
+
+addons:
+  sonarcloud:
+    organization: "imcamilo-github"
+    token:
+      secure: $SONAR_TOKEN
 script:
+  - sonar-scanner
   - ./gradlew check
   - ./gradlew clean
   - ./gradlew build
