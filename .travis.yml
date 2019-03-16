@@ -1,0 +1,7 @@
+language: java
+
+install: true
+
+script:
+  - gradle clean
+  - gradle build
