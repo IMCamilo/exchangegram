@@ -2,6 +2,9 @@ language: java
 
 install: true
 
+dist: trusty
+
 script:
+  - gradle check
   - gradle clean
   - gradle build
