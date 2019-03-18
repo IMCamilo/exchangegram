@@ -31,4 +31,14 @@ public class CommentServiceImp implements CommentService{
                         comment.getTitle(), comment.getBody()));
     }
 
+    public List<CommentDTO> findAllByName(String name) {
+        List<Comment> comments = commentMapper.findAllByName(name);
+        return comments.stream().map(Comment::toDTO).collect(Collectors.toList());
+    }
+
+    public List<CommentDTO> findAllByUserId(Integer userId) {
+        List<Comment> comments = commentMapper.findAllByUserId(userId);
+        return comments.stream().map(Comment::toDTO).collect(Collectors.toList());
+    }
+
 }

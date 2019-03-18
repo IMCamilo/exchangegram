@@ -11,4 +11,8 @@ public interface CommentService {
 
     void saveAllComments(List<CommentDTO> commentDTOList);
 
+    List<CommentDTO> findAllByName(String name);
+
+    List<CommentDTO> findAllByUserId(Integer userId);
+
 }
