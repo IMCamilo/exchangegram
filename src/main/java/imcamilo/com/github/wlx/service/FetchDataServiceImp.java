@@ -1,8 +1,6 @@
 package imcamilo.com.github.wlx.service;
 
-import imcamilo.com.github.wlx.dto.AlbumDTO;
-import imcamilo.com.github.wlx.dto.PhotoDTO;
-import imcamilo.com.github.wlx.dto.UserDTO;
+import imcamilo.com.github.wlx.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -31,6 +29,12 @@ public class FetchDataServiceImp implements FetchDataService {
     @Value("${endpoints.photos}")
     private String photosEndpoint;
 
+    @Value("${endpoints.posts}")
+    private String postsEndpoint;
+
+    @Value("${endpoints.comments}")
+    private String commentsEndpoint;
+
     @Autowired
     public FetchDataServiceImp(RestTemplateBuilder restTemplateBuilder) {
         this.restTemplate = restTemplateBuilder.build();
@@ -51,6 +55,18 @@ public class FetchDataServiceImp implements FetchDataService {
     public List<PhotoDTO> getAllPhotos() {
         ResponseEntity<List<PhotoDTO>> response = restTemplate.exchange(photosEndpoint, HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<PhotoDTO>>(){});
+        return response.getBody();
+    }
+
+    public List<PostDTO> getAllPosts() {
+        ResponseEntity<List<PostDTO>> response = restTemplate.exchange(postsEndpoint, HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<PostDTO>>(){});
+        return response.getBody();
+    }
+
+    public List<CommentDTO> getAllComments() {
+        ResponseEntity<List<CommentDTO>> response = restTemplate.exchange(commentsEndpoint, HttpMethod.GET, null,
+                new ParameterizedTypeReference<List<CommentDTO>>(){});
         return response.getBody();
     }
 

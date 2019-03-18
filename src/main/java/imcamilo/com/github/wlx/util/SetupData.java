@@ -1,12 +1,7 @@
 package imcamilo.com.github.wlx.util;
 
-import imcamilo.com.github.wlx.dto.AlbumDTO;
-import imcamilo.com.github.wlx.dto.PhotoDTO;
-import imcamilo.com.github.wlx.dto.UserDTO;
-import imcamilo.com.github.wlx.service.AlbumService;
-import imcamilo.com.github.wlx.service.FetchDataService;
-import imcamilo.com.github.wlx.service.PhotoService;
-import imcamilo.com.github.wlx.service.UserService;
+import imcamilo.com.github.wlx.dto.*;
+import imcamilo.com.github.wlx.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,14 +18,19 @@ public class SetupData {
     private PhotoService photoService;
     private AlbumService albumService;
     private UserService userService;
+    private PostService postService;
+    private CommentService commentService;
 
     @Autowired
     public SetupData(FetchDataService fetchDataService, PhotoService photoService,
-                     AlbumService albumService, UserService userService) {
+                     AlbumService albumService, UserService userService,
+                     PostService postService, CommentService commentService) {
         this.fetchDataService = fetchDataService;
         this.photoService = photoService;
         this.albumService = albumService;
         this.userService = userService;
+        this.postService = postService;
+        this.commentService = commentService;
     }
 
     @PostConstruct
@@ -41,6 +41,10 @@ public class SetupData {
         albumService.saveAllAlbums(albums);
         List<PhotoDTO> photos = fetchDataService.getAllPhotos();
         photoService.saveAllPhotos(photos);
+        List<PostDTO> posts = fetchDataService.getAllPosts();
+        postService.saveAllPosts(posts);
+        List<CommentDTO> comments = fetchDataService.getAllComments();
+        commentService.saveAllComments(comments);
     }
 
 }

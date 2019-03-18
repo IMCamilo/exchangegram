@@ -1,6 +1,7 @@
 package imcamilo.com.github.wlx.util;
 
 import imcamilo.com.github.wlx.dto.*;
+import imcamilo.com.github.wlx.dto.PostDTO;
 import imcamilo.com.github.wlx.model.*;
 
 /**
@@ -79,6 +80,35 @@ public class DTOMapper {
         ExchangegramSimple exchangegram = new ExchangegramSimple();
         toEntity(simpleDTO, exchangegram);
         return exchangegram;
+    }
+
+
+    private static void toEntity(PostDTO postDTO, Post post) {
+        post.setId(postDTO.getId());
+        post.setUserId(postDTO.getUserId());
+        post.setTitle(postDTO.getTitle());
+        post.setBody(postDTO.getBody());
+    }
+
+    public static Post toEntity(PostDTO postDTO) {
+        Post post = new Post();
+        toEntity(postDTO, post);
+        return post;
+    }
+
+    private static void toEntity(CommentDTO commentDTO, Comment comment) {
+        comment.setId(commentDTO.getId());
+        comment.setPostId(commentDTO.getPostId());
+        comment.setName(commentDTO.getName());
+        comment.setEmail(commentDTO.getEmail());
+        comment.setTitle(commentDTO.getTitle());
+        comment.setBody(commentDTO.getBody());
+    }
+
+    public static Comment toEntity(CommentDTO commentDTO) {
+        Comment comment = new Comment();
+        toEntity(commentDTO, comment);
+        return comment;
     }
 
 }

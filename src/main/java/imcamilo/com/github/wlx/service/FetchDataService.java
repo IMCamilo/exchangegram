@@ -1,8 +1,6 @@
 package imcamilo.com.github.wlx.service;
 
-import imcamilo.com.github.wlx.dto.AlbumDTO;
-import imcamilo.com.github.wlx.dto.PhotoDTO;
-import imcamilo.com.github.wlx.dto.UserDTO;
+import imcamilo.com.github.wlx.dto.*;
 
 import java.util.List;
 
@@ -16,5 +14,9 @@ public interface FetchDataService {
     List<AlbumDTO> getAllAlbums();
 
     List<PhotoDTO> getAllPhotos();
+
+    List<PostDTO> getAllPosts();
+
+    List<CommentDTO> getAllComments();
 
 }
