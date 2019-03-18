@@ -17,4 +17,5 @@ script:
   - ./gradlew check
   - ./gradlew clean
   - ./gradlew build
+  - ./gradlew test
   - sonar-scanner
