@@ -1,6 +1,5 @@
 package imcamilo.com.github.wlx.dto;
 
-import imcamilo.com.github.wlx.model.Comment;
 import lombok.Getter;
 import lombok.Setter;
 

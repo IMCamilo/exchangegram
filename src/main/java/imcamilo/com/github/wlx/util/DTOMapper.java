@@ -18,10 +18,8 @@ public class DTOMapper {
         user.setName(userDTO.getName());
         user.setUsername(userDTO.getUsername());
         user.setEmail(userDTO.getEmail());
-        //user.setAddress(userDTO.getAddress());
         user.setPhone(userDTO.getPhone());
         user.setWebsite(userDTO.getWebsite());
-        //user.setCompany(userDTO.getCompany());
     }
 
     public static User toEntity(UserDTO userDTO) {
