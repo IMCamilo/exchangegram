@@ -2,7 +2,6 @@ package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.PhotoDTO;
 import imcamilo.com.github.wlx.mapper.PhotoMapper;
-import imcamilo.com.github.wlx.model.Exchangegram;
 import imcamilo.com.github.wlx.model.Photo;
 import imcamilo.com.github.wlx.util.DTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
