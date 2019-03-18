@@ -2,7 +2,6 @@ package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -19,53 +18,41 @@ import java.util.List;
 public class FetchDataServiceImp implements FetchDataService {
 
     private final RestTemplate restTemplate;
-
-    @Value("${endpoints.users}")
-    private String usersEndpoint;
-
-    @Value("${endpoints.albums}")
-    private String albumsEndpoint;
-
-    @Value("${endpoints.photos}")
-    private String photosEndpoint;
-
-    @Value("${endpoints.posts}")
-    private String postsEndpoint;
-
-    @Value("${endpoints.comments}")
-    private String commentsEndpoint;
+    private ConfigurationService configurationService;
 
     @Autowired
-    public FetchDataServiceImp(RestTemplateBuilder restTemplateBuilder) {
+    public FetchDataServiceImp(RestTemplateBuilder restTemplateBuilder,
+                               ConfigurationService configurationService) {
         this.restTemplate = restTemplateBuilder.build();
+        this.configurationService = configurationService;
     }
 
     public List<UserDTO> getAllUsers() {
-        ResponseEntity<List<UserDTO>> response = restTemplate.exchange(usersEndpoint, HttpMethod.GET, null,
+        ResponseEntity<List<UserDTO>> response = restTemplate.exchange(configurationService.getUsersEndpoint(), HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<UserDTO>>(){});
         return response.getBody();
     }
 
     public List<AlbumDTO> getAllAlbums() {
-        ResponseEntity<List<AlbumDTO>> response = restTemplate.exchange(albumsEndpoint, HttpMethod.GET, null,
+        ResponseEntity<List<AlbumDTO>> response = restTemplate.exchange(configurationService.getAlbumsEndpoint(), HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<AlbumDTO>>(){});
         return response.getBody();
     }
 
     public List<PhotoDTO> getAllPhotos() {
-        ResponseEntity<List<PhotoDTO>> response = restTemplate.exchange(photosEndpoint, HttpMethod.GET, null,
+        ResponseEntity<List<PhotoDTO>> response = restTemplate.exchange(configurationService.getPhotosEndpoint(), HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<PhotoDTO>>(){});
         return response.getBody();
     }
 
     public List<PostDTO> getAllPosts() {
-        ResponseEntity<List<PostDTO>> response = restTemplate.exchange(postsEndpoint, HttpMethod.GET, null,
+        ResponseEntity<List<PostDTO>> response = restTemplate.exchange(configurationService.getPostsEndpoint(), HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<PostDTO>>(){});
         return response.getBody();
     }
 
     public List<CommentDTO> getAllComments() {
-        ResponseEntity<List<CommentDTO>> response = restTemplate.exchange(commentsEndpoint, HttpMethod.GET, null,
+        ResponseEntity<List<CommentDTO>> response = restTemplate.exchange(configurationService.getCommentsEndpoint(), HttpMethod.GET, null,
                 new ParameterizedTypeReference<List<CommentDTO>>(){});
         return response.getBody();
     }
