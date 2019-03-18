@@ -22,7 +22,7 @@ public interface PhotoMapper {
                     @Param("url") String url,
                     @Param("thumbnailUrl") String thumbnailUrl);
 
-    @Select("select p.id, a.userId, p.thumbnailurl " +
+    @Select("select p.id, p.albumId, p.title, p.url, a.userId, p.thumbnailurl " +
             "from album a join photo p on a.id = p.albumId " +
             "where a.userId = #{userId}")
     List<Photo> findAllPhotosByUserId(@Param("userId") Integer userId);
