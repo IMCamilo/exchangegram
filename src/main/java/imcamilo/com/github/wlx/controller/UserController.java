@@ -1,7 +1,6 @@
 package imcamilo.com.github.wlx.controller;
 
 import imcamilo.com.github.wlx.dto.AlbumDTO;
-import imcamilo.com.github.wlx.dto.UserDTO;
 import imcamilo.com.github.wlx.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,12 +14,11 @@ import java.util.List;
 @RequestMapping("/api/v1/users")
 public class UserController {
 
-    @Autowired
-    AlbumService albumService;
+    private AlbumService albumService;
 
-    @GetMapping("/{id}")
-    public UserDTO getUser(@PathVariable Integer id) {
-        return null;
+    @Autowired
+    public UserController(AlbumService albumService) {
+        this.albumService = albumService;
     }
 
     @GetMapping("/{id}/albums")

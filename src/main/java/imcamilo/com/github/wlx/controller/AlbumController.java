@@ -18,8 +18,12 @@ import java.util.List;
 @RequestMapping("/api/v1/albums")
 public class AlbumController {
 
-    @Autowired
     private ExchangegramService exchangegramService;
+
+    @Autowired
+    public AlbumController(ExchangegramService exchangegramService) {
+        this.exchangegramService = exchangegramService;
+    }
 
     @GetMapping("/{id}/permissions/{permission}")
     public List<ExchangegramSimpleDTO> getDetailsForAlbum(@PathVariable Integer id, @PathVariable PermissionEnum permission) {

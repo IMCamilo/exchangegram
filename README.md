@@ -1,4 +1,4 @@
-## _Intercambiagram_
+## _exchangegram_
 
 `Java 8`
 `Gradle`

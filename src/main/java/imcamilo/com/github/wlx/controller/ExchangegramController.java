@@ -3,6 +3,8 @@ package imcamilo.com.github.wlx.controller;
 import imcamilo.com.github.wlx.dto.ExchangegramDTO;
 import imcamilo.com.github.wlx.service.ExchangegramService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,21 +16,29 @@ import java.util.List;
 @RequestMapping("/api/v1/exchangegram")
 public class ExchangegramController {
 
-    @Autowired
     private ExchangegramService exchangegramService;
 
+    @Autowired
+    public ExchangegramController(ExchangegramService exchangegramService) {
+        this.exchangegramService = exchangegramService;
+    }
+
     @PostMapping
-    public void registerAlbum(@RequestBody ExchangegramDTO exchangegramDTO) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity registerAlbum(@RequestBody ExchangegramDTO exchangegramDTO) {
         exchangegramService.save(exchangegramDTO);
+        return ResponseEntity.ok("OK");
     }
 
     @PutMapping
-    public void updateRecordAlbum(@RequestBody ExchangegramDTO exchangegramDTO) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity updateRecordAlbum(@RequestBody ExchangegramDTO exchangegramDTO) {
         exchangegramService.update(exchangegramDTO);
+        return ResponseEntity.ok("OK");
     }
 
     @GetMapping
-    public List<ExchangegramDTO> findAll() {
+    public List<ExchangegramDTO> findAllSharedAlbums() {
         return exchangegramService.findAll();
     }
 

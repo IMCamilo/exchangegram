@@ -18,8 +18,12 @@ import java.util.List;
 @RequestMapping("/api/v1/comments")
 public class CommentController {
 
-    @Autowired
     private CommentService commentService;
+
+    @Autowired
+    public CommentController(CommentService commentService) {
+        this.commentService = commentService;
+    }
 
     @GetMapping("/name/{name}")
     public List<CommentDTO> getByName(@PathVariable String name) {
