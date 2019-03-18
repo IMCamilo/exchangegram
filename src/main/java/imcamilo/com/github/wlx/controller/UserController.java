@@ -1,7 +1,9 @@
 package imcamilo.com.github.wlx.controller;
 
 import imcamilo.com.github.wlx.dto.AlbumDTO;
+import imcamilo.com.github.wlx.dto.PhotoDTO;
 import imcamilo.com.github.wlx.service.AlbumService;
+import imcamilo.com.github.wlx.service.PhotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,10 +17,12 @@ import java.util.List;
 public class UserController {
 
     private AlbumService albumService;
+    private PhotoService photoService;
 
     @Autowired
-    public UserController(AlbumService albumService) {
+    public UserController(AlbumService albumService, PhotoService photoService) {
         this.albumService = albumService;
+        this.photoService = photoService;
     }
 
     @GetMapping("/{id}/albums")
@@ -27,8 +31,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}/photos")
-    public @ResponseBody List<AlbumDTO> getPhotoList(@PathVariable Integer id) {
-        return null;
+    public @ResponseBody List<PhotoDTO> getPhotoList(@PathVariable Integer id) {
+        return photoService.findAllPhotosByUserId(id);
     }
 
 }
