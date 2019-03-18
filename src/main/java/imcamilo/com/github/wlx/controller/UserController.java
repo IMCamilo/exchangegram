@@ -26,4 +26,9 @@ public class UserController {
         return albumService.findAllByUserId(id);
     }
 
+    @GetMapping("/{id}/photos")
+    public @ResponseBody List<AlbumDTO> getPhotoList(@PathVariable Integer id) {
+        return null;
+    }
+
 }

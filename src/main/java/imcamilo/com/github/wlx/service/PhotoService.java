@@ -11,4 +11,6 @@ public interface PhotoService {
 
     void saveAllPhotos(List<PhotoDTO> photoDTOList);
 
+    List<PhotoDTO> findAllPhotosByUserId(Integer userId);
+
 }

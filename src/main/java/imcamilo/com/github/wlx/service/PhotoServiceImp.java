@@ -2,6 +2,7 @@ package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.PhotoDTO;
 import imcamilo.com.github.wlx.mapper.PhotoMapper;
+import imcamilo.com.github.wlx.model.Exchangegram;
 import imcamilo.com.github.wlx.model.Photo;
 import imcamilo.com.github.wlx.util.DTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class PhotoServiceImp implements PhotoService {
         List<Photo> photoList = photoDTOList.stream().map(DTOMapper::toEntity).collect(Collectors.toList());
         photoList.forEach( photo ->
                 photoMapper.save(photo.getId(), photo.getAlbumId(), photo.getTitle(), photo.getUrl(), photo.getThumbnailUrl()));
+    }
+
+    public List<PhotoDTO> findAllPhotosByUserId(Integer userId) {
+        List<Photo> photosByUserId = photoMapper.findAllPhotosByUserId(userId);
+        return photosByUserId.stream().map(Photo::toDTO).collect(Collectors.toList());
     }
 
 }
