@@ -23,9 +23,9 @@ class PostServiceTest extends Specification {
             List<PostDTO> posts = []
             mapper.save(_,_,_,_) >> dataSaved
         when:
-            def userSaved = service.saveAllPosts(posts)
+            def postSave = service.saveAllPosts(posts)
         then:
-            userSaved == null
+            postSave == null
     }
 
 }

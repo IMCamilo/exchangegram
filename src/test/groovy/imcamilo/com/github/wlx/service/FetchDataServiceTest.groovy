@@ -8,7 +8,7 @@ import spock.lang.Specification
 /**
  * Created by Camilo Jorquera on 3/18/19
  */
-class PhotoServiceTest extends Specification {
+class FetchDataServiceTest extends Specification {
 
     PhotoServiceImp service
     PhotoMapper mapper = Stub(PhotoMapper)

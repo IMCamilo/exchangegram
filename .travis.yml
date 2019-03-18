@@ -10,8 +10,8 @@ addons:
     organization: "imcamilo-github"
     token:
       secure: $SONAR_TOKEN
-script:
-  - sonar-scanner
+script
   - ./gradlew check
   - ./gradlew clean
   - ./gradlew build
+  - sonar-scanner
