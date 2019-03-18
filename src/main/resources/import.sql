@@ -1,6 +1,9 @@
 drop table if exists users;
 drop table if exists album;
 drop table if exists photo;
+drop table if exists exchangegram;
+drop table if exists post;
+drop table if exists comment;
 
 create table users(id int primary key,
                     name varchar,
