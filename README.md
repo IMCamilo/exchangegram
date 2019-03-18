@@ -12,6 +12,9 @@ gradle clean
 gradle build
 ```
 ```
+gradle test
+```
+```
 gradle bootRun
 ```
 
@@ -28,7 +31,9 @@ docker run -p 8766:8766 -t wlx-app
 
 #### _Test the app_
 
-Registrar un álbum compartido con un usuario y sus permisos. **POST**
+> Permisos [READ, WRITE, ALL]
+
+* Registrar un álbum compartido con un usuario y su permiso. **POST**
 ```
 http://localhost:8766/api/v1/exchangegram
 {
@@ -38,7 +43,13 @@ http://localhost:8766/api/v1/exchangegram
 	"permission":"READ"
 }
 ```
-Cambiar los permisos de un usuario para un álbum determinado. **PUT**
+
+* Traer todos los albumes compartidos. **GET**
+```
+http://localhost:8766/api/v1/exchangegram
+```
+
+* Cambiar los permisos de un usuario para un álbum determinado. **PUT**
 ```
 http://localhost:8766/api/v1/exchangegram
  {
@@ -51,19 +62,19 @@ http://localhost:8766/api/v1/exchangegram
 ```
 
 
-Traer todos los usuarios que tienen un permiso determinado respecto a un
+* Traer todos los usuarios que tienen un permiso determinado respecto a un
 álbum específico. **GET**
 ```
 http://localhost:8766/api/v1/albums/1/permissions/READ
 ```
 
-Busca comentarios por nombre. **GET**
+* Busca comentarios por nombre. **GET**
 
 ```
 http://localhost:8766/api/v1/comments/name/sit
 ```
 
-Busca comentarios por userId. **GET**
+* Busca comentarios por userId. **GET**
 
 ```
 http://localhost:8766/api/v1/comments/users/8
