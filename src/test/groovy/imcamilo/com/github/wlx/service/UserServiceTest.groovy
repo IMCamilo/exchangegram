@@ -21,7 +21,7 @@ class UserServiceTest extends Specification {
         given:
             def dataSaved = void
             List<UserDTO> users = []
-            mapper.save(_) >> dataSaved
+            mapper.save(_,_,_,_,_,_,_,_) >> dataSaved
         when:
             def userSaved = service.saveAllUsers(users)
         then:
