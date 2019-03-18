@@ -101,7 +101,6 @@ public class DTOMapper {
         comment.setPostId(commentDTO.getPostId());
         comment.setName(commentDTO.getName());
         comment.setEmail(commentDTO.getEmail());
-        comment.setTitle(commentDTO.getTitle());
         comment.setBody(commentDTO.getBody());
     }
 
@@ -109,6 +108,21 @@ public class DTOMapper {
         Comment comment = new Comment();
         toEntity(commentDTO, comment);
         return comment;
+    }
+
+    private static void toEntity(CommentPlusDTO commentPlusDTO, CommentPlus commentPlus) {
+        commentPlus.setId(commentPlusDTO.getId());
+        commentPlus.setUserId(commentPlusDTO.getUserId());
+        commentPlus.setPostId(commentPlusDTO.getPostId());
+        commentPlus.setName(commentPlusDTO.getName());
+        commentPlus.setEmail(commentPlusDTO.getEmail());
+        commentPlus.setBody(commentPlusDTO.getBody());
+    }
+
+    public static CommentPlus toEntity(CommentPlusDTO commentPlusDTO) {
+        CommentPlus commentPlus = new CommentPlus();
+        toEntity(commentPlusDTO, commentPlus);
+        return commentPlus;
     }
 
 }

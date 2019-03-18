@@ -1,6 +1,9 @@
 package imcamilo.com.github.wlx.controller;
 
 import imcamilo.com.github.wlx.dto.CommentDTO;
+import imcamilo.com.github.wlx.dto.CommentPlusDTO;
+import imcamilo.com.github.wlx.service.CommentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,14 +18,17 @@ import java.util.List;
 @RequestMapping("/api/v1/comments")
 public class CommentController {
 
+    @Autowired
+    private CommentService commentService;
+
     @GetMapping("/name/{name}")
     public List<CommentDTO> getByName(@PathVariable String name) {
-        return null;
+        return commentService.findAllByName(name);
     }
 
     @GetMapping("/users/{userId}")
-    public List<CommentDTO> getByUser(@PathVariable String userId) {
-        return null;
+    public List<CommentPlusDTO> getByUser(@PathVariable Integer userId) {
+        return commentService.findAllByUserId(userId);
     }
 
 }

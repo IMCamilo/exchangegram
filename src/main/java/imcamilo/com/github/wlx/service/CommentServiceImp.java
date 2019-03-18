@@ -1,8 +1,10 @@
 package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.CommentDTO;
+import imcamilo.com.github.wlx.dto.CommentPlusDTO;
 import imcamilo.com.github.wlx.mapper.CommentMapper;
 import imcamilo.com.github.wlx.model.Comment;
+import imcamilo.com.github.wlx.model.CommentPlus;
 import imcamilo.com.github.wlx.util.DTOMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +29,7 @@ public class CommentServiceImp implements CommentService{
         List<Comment> postList = commentDTOList.stream().map(DTOMapper::toEntity).collect(Collectors.toList());
         postList.forEach( comment ->
                 commentMapper.save(comment.getId(), comment.getPostId(),
-                        comment.getName(), comment.getEmail(),
-                        comment.getTitle(), comment.getBody()));
+                        comment.getName(), comment.getEmail(), comment.getBody()));
     }
 
     public List<CommentDTO> findAllByName(String name) {
@@ -36,9 +37,9 @@ public class CommentServiceImp implements CommentService{
         return comments.stream().map(Comment::toDTO).collect(Collectors.toList());
     }
 
-    public List<CommentDTO> findAllByUserId(Integer userId) {
-        List<Comment> comments = commentMapper.findAllByUserId(userId);
-        return comments.stream().map(Comment::toDTO).collect(Collectors.toList());
+    public List<CommentPlusDTO> findAllByUserId(Integer userId) {
+        List<CommentPlus> comments = commentMapper.findAllByUserId(userId);
+        return comments.stream().map(CommentPlus::toDTO).collect(Collectors.toList());
     }
 
 }

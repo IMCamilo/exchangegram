@@ -17,7 +17,6 @@ public class Comment implements Serializable {
     private Integer postId;
     private String name;
     private String email;
-    private String title;
     private String body;
 
     public CommentDTO toDTO() {
@@ -26,7 +25,6 @@ public class Comment implements Serializable {
         commentDTO.setPostId(this.getPostId());
         commentDTO.setName(this.getName());
         commentDTO.setEmail(this.getEmail());
-        commentDTO.setTitle(this.getTitle());
         commentDTO.setBody(this.getBody());
         return commentDTO;
     }

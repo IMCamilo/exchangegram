@@ -1,6 +1,7 @@
 package imcamilo.com.github.wlx.service;
 
 import imcamilo.com.github.wlx.dto.CommentDTO;
+import imcamilo.com.github.wlx.dto.CommentPlusDTO;
 
 import java.util.List;
 
@@ -13,6 +14,6 @@ public interface CommentService {
 
     List<CommentDTO> findAllByName(String name);
 
-    List<CommentDTO> findAllByUserId(Integer userId);
+    List<CommentPlusDTO> findAllByUserId(Integer userId);
 
 }

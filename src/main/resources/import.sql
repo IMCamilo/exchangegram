@@ -19,7 +19,7 @@ create table exchangegram(id int primary key auto_increment, albumId int, ownerI
 
 create table post(id int primary key, userId int, title varchar, body varchar);
 
-create table comment(id int primary key, postId int, name varchar, email varchar, title varchar, body varchar);
+create table comment(id int primary key, postId int, name varchar, email varchar, body varchar);
 
 alter table album add foreign key(userId) references users(id);
 alter table photo add foreign key(albumId) references album(id);
