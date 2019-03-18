@@ -4,6 +4,7 @@ import imcamilo.com.github.wlx.dto.ExchangegramDTO
 import imcamilo.com.github.wlx.dto.ExchangegramSimpleDTO
 import imcamilo.com.github.wlx.dto.PermissionEnum
 import imcamilo.com.github.wlx.mapper.ExchangegramMapper
+import imcamilo.com.github.wlx.model.Exchangegram
 import imcamilo.com.github.wlx.model.ExchangegramSimple
 import spock.lang.Specification
 
@@ -50,26 +51,26 @@ class ExchangegramServiceTest extends Specification {
             exchSave == null
     }
 
-    void "Should return List<ExchangegramSimpleDTO> when the find data are correct"() {
+    void "Should return List<ExchangegramSimpleDTO> when the find data is correct"() {
         given:
             Integer albumId = 1
             PermissionEnum permission = "ALL"
-            List<ExchangegramSimpleDTO> dataSearch = []
+            List<ExchangegramSimple> dataSearch = []
             mapper.findAllByAlbumIdAndPermission(_,_) >> dataSearch
         when:
             def findInformation = service.findAllByPermissionAndAlbumId(albumId, permission)
         then:
-            findInformation instanceof List<ExchangegramSimple>
+            findInformation instanceof List<ExchangegramSimpleDTO>
     }
 
     void "Should return List<ExchangegramSimpleDTO> when the findAll is correct"() {
         given:
-            List<ExchangegramSimpleDTO> dataSearch = []
+            List<Exchangegram> dataSearch = []
             mapper.findAll() >> dataSearch
         when:
             def findInformation = service.findAll()
         then:
-            findInformation instanceof List<ExchangegramSimple>
+            findInformation instanceof List<ExchangegramDTO>
     }
 
 }

@@ -3,6 +3,8 @@ package imcamilo.com.github.wlx.service
 import imcamilo.com.github.wlx.dto.CommentDTO
 import imcamilo.com.github.wlx.dto.CommentPlusDTO
 import imcamilo.com.github.wlx.mapper.CommentMapper
+import imcamilo.com.github.wlx.model.Comment
+import imcamilo.com.github.wlx.model.CommentPlus
 import spock.lang.Specification
 
 
@@ -29,10 +31,10 @@ class CommentServiceTest extends Specification {
             commentSave == null
     }
 
-    void "Should return List<CommentDTO> when the find data are correct"() {
+    void "Should return List<CommentDTO> when the find data is correct"() {
         given:
             String name = "Me"
-            List<CommentDTO> dataSearch = []
+            List<Comment> dataSearch = []
             mapper.findAllByName(_) >> dataSearch
         when:
             def findInformation = service.findAllByName(name)
@@ -43,7 +45,7 @@ class CommentServiceTest extends Specification {
     void "Should return List<CommentPlusDTO> when the findAll is correct"() {
         given:
             Integer userId = 2
-            List<CommentPlusDTO> dataSearch = []
+            List<CommentPlus> dataSearch = []
             mapper.findAllByUserId(_) >> dataSearch
         when:
             def findInformation = service.findAllByUserId(userId)
