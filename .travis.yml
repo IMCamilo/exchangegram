@@ -5,7 +5,6 @@ jdk:
 
 dist: trusty
 
-
 addons:
   sonarcloud:
     organization: "imcamilo-github"
