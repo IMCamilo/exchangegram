@@ -10,8 +10,6 @@ addons:
     organization: "imcamilo-github"
     token:
       secure: $SONAR_TOKEN
-    branches:
-      - master
 
 script:
   - ./gradlew check
